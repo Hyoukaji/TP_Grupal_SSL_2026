@@ -16,3 +16,10 @@ def desencolar(cola):
     
 def tamanio(cola):
     return len(cola)
+
+# Consultar si con esto me ahorro el problema de la 2) y la 5)
+def copiarTrabajoEnI(cola,i):
+    if not esVacia(cola):
+        return cola[i]
+    else:
+        return None
