@@ -43,19 +43,37 @@ def procesarImpresion():
 
 
 def visualizacionCola():
-    for i in range(tamanio(cola_impresion)):
-        copiaTrabajo = copiarTrabajoEnI(cola_impresion,i)
-        if not esVacia(cola_impresion):
-            print("Id del trabajo: ", verJobID(copiaTrabajo))
-            print("Nombre del trabajo: ", verNombre(copiaTrabajo))
-            print("Formato del trabajo: ", verFormato(copiaTrabajo))
-            print("Cantidad del páginas del trabajo: ", verPaginas(copiaTrabajo))
-            print("Nivel de Prioridad del trabajo: ", verPrioridad(copiaTrabajo))
-            print("Fecha y Hora del trabajo: ", verFecha(copiaTrabajo))
-        else:
-            print("La cola está vacía o llegó a su fin")
+    if not esVacia(cola_impresion):
+        for i in range(tamanio(cola_impresion)):
+                copiaTrabajo = copiarTrabajoEnI(cola_impresion,i)
+                print("Id del trabajo: ", verJobID(copiaTrabajo))
+                print("Nombre del trabajo: ", verNombre(copiaTrabajo))
+                print("Formato del trabajo: ", verFormato(copiaTrabajo))
+                print("Cantidad del páginas del trabajo: ", verPaginas(copiaTrabajo))
+                print("Nivel de Prioridad del trabajo: ", verPrioridad(copiaTrabajo))
+                print("Fecha y Hora del trabajo: ", verFecha(copiaTrabajo))
+    else:
+        print("La cola está vacía")
 
 
 def reajusteMasivoPorFechas():
-    mes = input("Ingrese un mes para comenzar el reajuste: ")
+    if not esVacia(cola_impresion):
+        mes = int(input("Ingrese un mes para comenzar el reajuste: "))
+        for i in range(tamanio(cola_impresion)):
+                copiaTrabajo = copiarTrabajoEnI(cola_impresion,i)
+                if (verFecha(cola_impresion) == mes): #Chekear bien como hacemos la comparación según la librería de fechas
+                    modPrioridad(copiaTrabajo,"baja")
+    else:
+        print("La cola está vacía")
+
+
+def filtradoPorFormatoYFranjaHoraria():
+    if not esVacia(cola_impresion):
+        formato = int(input("Ingrese un formato para comenzar la purga: "))
+        for i in range(tamanio(cola_impresion)):
+                copiaTrabajo = copiarTrabajoEnI(cola_impresion,i)
+                if (verFormato(cola_impresion) == formato): #Chekear bien como hacemos la comparación según la librería de fechas
+                    modPrioridad(copiaTrabajo)
+    else:
+        print("La cola está vacía")
         
