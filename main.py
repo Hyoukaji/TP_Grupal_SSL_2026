@@ -1,5 +1,5 @@
-from trabajo_tad import *
-from cola_tad import *
+from tads.trabajo_tad import *
+from tads.cola_tad import *
 from datetime import datetime, time
 
 cola_impresion = crearCola()
@@ -23,6 +23,7 @@ def ingreso():
     print("Trabajo agregado a la cola de impresión.")
 
 
+# Consultar
 def cambiarPrioridad():
     jobID = input("Ingrese el ID del trabajo para cambiar su prioridad: ")
     nuevaPri = input("Ingrese la nueva prioridad: ")
