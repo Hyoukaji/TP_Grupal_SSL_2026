@@ -16,3 +16,17 @@ def desencolar(cola):
     
 def tamanio(cola):
     return len(cola)
+
+def copiarCola(cola_llena, cola_vacia):
+    cola_aux = crearCola()
+    
+    while not esVacia(cola_llena):
+        elemento = desencolar(cola_llena)
+        encolar(cola_vacia, elemento)
+        encolar(cola_aux, elemento)
+        
+    while not esVacia(cola_aux):
+        elemento = desencolar(cola_aux)
+        encolar(cola_llena, elemento)
+
+
