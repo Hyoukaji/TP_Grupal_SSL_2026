@@ -120,7 +120,7 @@ def filtradoPorFormato(cola_impresion):# Revisar bien la condicion
     else:
         print("La cola está vacía")
 
-def filtradoPorFranjaHorario(cola_impresion,segundaCola):
+def filtradoPorFranjaHorario(cola_impresion,segundaCola):#Falta terminar
     if not esVacia(cola_impresion):
          opcion = int(input("Ingrese una de las opciones para filtrar por franja horaria: "))
          horaInicio = 0
