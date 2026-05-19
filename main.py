@@ -14,7 +14,7 @@ def ingreso(cola_impresion):
     fmt = input("Tipo de Formato (PDF/Imagen/Texto): ")
     pag = int(input("Cantidad de Páginas: "))
     pri = input("Nivel de Prioridad: ")
-    fecha = datetime.now().time()
+    fecha = datetime.now() 
 
     cargarTrabajo(trabajo, jobID, nom, fmt, pag, pri, fecha)
 
