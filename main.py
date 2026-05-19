@@ -138,7 +138,7 @@ def filtradoPorFranjaHorario(cola_impresion,segundaCola):#Falta terminar
          while not esVacia(cola_aux2):
                 copiaTrabajo = desencolar(cola_aux2)
                 encolar(segundaCola,copiaTrabajo)
-         copiarCola(cola_impresion,cola_aux)
+         copiarCola(segundaCola,cola_aux)
         
     else:
         print("La cola está vacía")
