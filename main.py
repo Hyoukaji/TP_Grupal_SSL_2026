@@ -40,6 +40,7 @@ def cambiarPrioridad(cola_impresion):
         while not esVacia(cola_aux2):
                     copiaTrabajo = desencolar(cola_aux2)
                     encolar(cola_aux,copiaTrabajo)
+        copiarCola(cola_impresion,cola_aux)
     else:
         print("La cola está vacía")
 
@@ -68,6 +69,7 @@ def visualizacionCola(cola_impresion):
         while not esVacia(cola_aux2):
                 copiaTrabajo = desencolar(cola_aux2)
                 encolar(cola_aux,copiaTrabajo)
+        copiarCola(cola_impresion,cola_aux)
     else:
         print("La cola está vacía")
 
@@ -86,6 +88,7 @@ def reajusteMasivoPorFechas(cola_impresion):
         while not esVacia(cola_aux2):
                 copiaTrabajo = desencolar(cola_aux2)
                 encolar(cola_aux,copiaTrabajo)
+        copiarCola(cola_impresion,cola_aux)
     else:
         print("La cola está vacía")
 
@@ -103,6 +106,7 @@ def filtradoPorFormato(cola_impresion):# Revisar bien la condicion
         while not esVacia(cola_aux2):
                 copiaTrabajo = desencolar(cola_aux2)
                 encolar(cola_aux,copiaTrabajo)
+        copiarCola(cola_impresion,cola_aux)
     else:
         print("La cola está vacía")
 
@@ -134,6 +138,7 @@ def filtradoPorFranjaHorario(cola_impresion,segundaCola):#Falta terminar
          while not esVacia(cola_aux2):
                 copiaTrabajo = desencolar(cola_aux2)
                 encolar(segundaCola,copiaTrabajo)
+         copiarCola(cola_impresion,cola_aux)
         
     else:
         print("La cola está vacía")
