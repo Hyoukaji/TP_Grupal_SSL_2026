@@ -82,7 +82,7 @@ def reajusteMasivoPorFechas(cola_impresion):
         copiarCola(cola_impresion,cola_aux)
         while not esVacia(cola_aux):
                 copiaTrabajo = desencolar(cola_aux)
-                if (verFecha(copiaTrabajo) == mes): #Chekear bien como hacemos la comparación según la librería de fechas
+                if (verFecha(copiaTrabajo).month == mes):
                     modPrioridad(copiaTrabajo,"baja")
                 encolar(cola_aux2,copiaTrabajo)
         while not esVacia(cola_aux2):
@@ -133,7 +133,7 @@ def filtradoPorFranjaHorario(cola_impresion,segundaCola):#Falta terminar
          copiarCola(cola_impresion,cola_aux)
          while not esVacia(cola_aux):
             copiaTrabajo = desencolar(cola_aux)
-            if (verFecha(copiaTrabajo) >= horaInicio and verFecha(copiaTrabajo) < horaFin): 
+            if (verFecha(copiaTrabajo).hour >= horaInicio and verFecha(copiaTrabajo).hour < horaFin): 
                 encolar(cola_aux2,copiaTrabajo)
          while not esVacia(cola_aux2):
                 copiaTrabajo = desencolar(cola_aux2)
