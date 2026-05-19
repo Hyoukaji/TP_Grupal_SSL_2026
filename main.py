@@ -31,19 +31,15 @@ def cambiarPrioridad(cola_impresion):
         cola_aux = crearCola()
         cola_aux2 = crearCola()
         copiarCola(cola_impresion,cola_aux)
-        i = 0
-        while (i <= tamanio(cola_aux) + 1):
+        while not esVacia(cola_aux):
             trabajo_actual = desencolar(cola_aux)
             if verJobID(trabajo_actual) == jobID:
                 modPrioridad(trabajo_actual, nuevaPri)
                 print("Prioridad del trabajo actualizada.")
             encolar(cola_aux2, trabajo_actual)
-            i = i + 1
-        i = 0
-        while (i <= tamanio(cola_aux2) + 1):
+        while not esVacia(cola_aux2):
                     copiaTrabajo = desencolar(cola_aux2)
                     encolar(cola_aux,copiaTrabajo)
-                    i = i + 1
     else:
         print("La cola está vacía")
 
@@ -59,8 +55,7 @@ def visualizacionCola(cola_impresion):
         cola_aux = crearCola()
         cola_aux2 = crearCola()
         copiarCola(cola_impresion,cola_aux)
-        i = 0
-        while (i <= tamanio(cola_aux) + 1):
+        while not esVacia(cola_aux):
                 copiaTrabajo = desencolar(cola_aux)
                 print("Id del trabajo: ", verJobID(copiaTrabajo))
                 print("Nombre del trabajo: ", verNombre(copiaTrabajo))
@@ -70,12 +65,9 @@ def visualizacionCola(cola_impresion):
                 print("Fecha y Hora del trabajo: ", verFecha(copiaTrabajo))
 
                 encolar(cola_aux2,copiaTrabajo)
-                i = i + 1
-        i = 0
-        while (i <= tamanio(cola_aux2) + 1):
+        while not esVacia(cola_aux2):
                 copiaTrabajo = desencolar(cola_aux2)
                 encolar(cola_aux,copiaTrabajo)
-                i = i + 1
     else:
         print("La cola está vacía")
 
@@ -86,18 +78,14 @@ def reajusteMasivoPorFechas(cola_impresion):
         cola_aux = crearCola()
         cola_aux2 = crearCola()
         copiarCola(cola_impresion,cola_aux)
-        i = 0
-        while (i <= tamanio(cola_aux) + 1):
+        while not esVacia(cola_aux):
                 copiaTrabajo = desencolar(cola_aux)
                 if (verFecha(copiaTrabajo) == mes): #Chekear bien como hacemos la comparación según la librería de fechas
                     modPrioridad(copiaTrabajo,"baja")
                 encolar(cola_aux2,copiaTrabajo)
-                i = i + 1
-        i = 0
-        while (i <= tamanio(cola_aux2) + 1):
+        while not esVacia(cola_aux2):
                 copiaTrabajo = desencolar(cola_aux2)
                 encolar(cola_aux,copiaTrabajo)
-                i = i + 1
     else:
         print("La cola está vacía")
 
@@ -108,17 +96,13 @@ def filtradoPorFormato(cola_impresion):# Revisar bien la condicion
         cola_aux = crearCola()
         cola_aux2 = crearCola()
         copiarCola(cola_impresion,cola_aux)
-        i = 0
-        while (i <= tamanio(cola_aux) + 1):
+        while not esVacia(cola_aux):
                 copiaTrabajo = desencolar(cola_aux)
                 if (verFormato(copiaTrabajo) != formato): 
                     encolar(cola_aux2,copiaTrabajo)
-                i = i + 1
-        i = 0
-        while (i <= tamanio(cola_aux2) + 1):
+        while not esVacia(cola_aux2):
                 copiaTrabajo = desencolar(cola_aux2)
                 encolar(cola_aux,copiaTrabajo)
-                i = i + 1
     else:
         print("La cola está vacía")
 
@@ -143,17 +127,13 @@ def filtradoPorFranjaHorario(cola_impresion,segundaCola):#Falta terminar
          cola_aux = crearCola()
          cola_aux2 = crearCola()
          copiarCola(cola_impresion,cola_aux)
-         i = 0
-         while (i <= tamanio(cola_aux) + 1):
+         while not esVacia(cola_aux):
             copiaTrabajo = desencolar(cola_aux)
             if (verFecha(copiaTrabajo) >= horaInicio and verFecha(copiaTrabajo) < horaFin): 
                 encolar(cola_aux2,copiaTrabajo)
-            i = i + 1
-         i = 0
-         while (i <= tamanio(cola_aux2) + 1):
+         while not esVacia(cola_aux2):
                 copiaTrabajo = desencolar(cola_aux2)
                 encolar(segundaCola,copiaTrabajo)
-                i = i + 1
         
     else:
         print("La cola está vacía")
