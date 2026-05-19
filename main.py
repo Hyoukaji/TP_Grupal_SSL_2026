@@ -23,7 +23,7 @@ def ingreso(cola_impresion):
     print("Trabajo agregado a la cola de impresión.")
 
 
-# Consultar
+
 def cambiarPrioridad(cola_impresion):
     if not esVacia(cola_impresion):
         jobID = input("Ingrese el ID del trabajo para cambiar su prioridad: ")
@@ -37,16 +37,16 @@ def cambiarPrioridad(cola_impresion):
             if verJobID(trabajo_actual) == jobID:
                 modPrioridad(trabajo_actual, nuevaPri)
                 print("Prioridad del trabajo actualizada.")
-            encolar(cola_aux, trabajo_actual)
+            encolar(cola_aux2, trabajo_actual)
             i = i + 1
-        while (i <= tamanio(cola_aux) + 1):
-                    copiaTrabajo = desencolar(cola_aux)
+        while (i <= tamanio(cola_aux2) + 1):
+                    copiaTrabajo = desencolar(cola_aux2)
                     encolar(cola_aux,copiaTrabajo)
                     i = i + 1
     else:
         print("La cola está vacía")
 
-# Consultar si debería pasar por referencia la cola, o si la cola es global por que es una sola
+
 def procesarImpresion(cola_impresion):
     impresion = desencolar(cola_impresion)
     print("Impresión procesada: ", verNombre(impresion))
@@ -126,7 +126,7 @@ def filtradoPorFranjaHorario(cola_impresion,segundaCola):#Falta terminar
          horaInicio = 0
          horaFin = 0
          match opcion:
-            case 1:
+            case 1:#Chekear bien como hacemos la comparación según la librería de fechas
                 print("Elegiste la opción 1: Mañana")
                 horaInicio = 8
                 horaFin = 12
@@ -144,6 +144,8 @@ def filtradoPorFranjaHorario(cola_impresion,segundaCola):#Falta terminar
          i = 0
          while (i <= tamanio(cola_aux) + 1):
             copiaTrabajo = desencolar(cola_aux)
+            if (verFecha(copiaTrabajo) >= horaInicio and verFecha(copiaTrabajo) < horaFin): 
+                encolar(cola_aux2,copiaTrabajo)
 
          while (i <= tamanio(cola_aux2) + 1):
                 copiaTrabajo = desencolar(cola_aux2)
