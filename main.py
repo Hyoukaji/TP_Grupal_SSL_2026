@@ -39,6 +39,7 @@ def cambiarPrioridad(cola_impresion):
                 print("Prioridad del trabajo actualizada.")
             encolar(cola_aux2, trabajo_actual)
             i = i + 1
+        i = 0
         while (i <= tamanio(cola_aux2) + 1):
                     copiaTrabajo = desencolar(cola_aux2)
                     encolar(cola_aux,copiaTrabajo)
@@ -88,10 +89,11 @@ def reajusteMasivoPorFechas(cola_impresion):
         i = 0
         while (i <= tamanio(cola_aux) + 1):
                 copiaTrabajo = desencolar(cola_aux)
-                if (verFecha(cola_aux) == mes): #Chekear bien como hacemos la comparación según la librería de fechas
+                if (verFecha(copiaTrabajo) == mes): #Chekear bien como hacemos la comparación según la librería de fechas
                     modPrioridad(copiaTrabajo,"baja")
                 encolar(cola_aux2,copiaTrabajo)
                 i = i + 1
+        i = 0
         while (i <= tamanio(cola_aux2) + 1):
                 copiaTrabajo = desencolar(cola_aux2)
                 encolar(cola_aux,copiaTrabajo)
@@ -109,10 +111,10 @@ def filtradoPorFormato(cola_impresion):# Revisar bien la condicion
         i = 0
         while (i <= tamanio(cola_aux) + 1):
                 copiaTrabajo = desencolar(cola_aux)
-                if (verFormato(cola_aux) == formato): 
-                    modPrioridad(copiaTrabajo)
+                if (verFormato(copiaTrabajo) != formato): 
                     encolar(cola_aux2,copiaTrabajo)
                 i = i + 1
+        i = 0
         while (i <= tamanio(cola_aux2) + 1):
                 copiaTrabajo = desencolar(cola_aux2)
                 encolar(cola_aux,copiaTrabajo)
@@ -146,7 +148,8 @@ def filtradoPorFranjaHorario(cola_impresion,segundaCola):#Falta terminar
             copiaTrabajo = desencolar(cola_aux)
             if (verFecha(copiaTrabajo) >= horaInicio and verFecha(copiaTrabajo) < horaFin): 
                 encolar(cola_aux2,copiaTrabajo)
-
+            i = i + 1
+         i = 0
          while (i <= tamanio(cola_aux2) + 1):
                 copiaTrabajo = desencolar(cola_aux2)
                 encolar(segundaCola,copiaTrabajo)
