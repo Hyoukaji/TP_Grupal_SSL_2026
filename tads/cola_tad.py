@@ -19,6 +19,9 @@ def tamanio(cola):
 
 def copiarCola(cola_llena, cola_vacia):
     cola_aux = crearCola()
+    if not esVacia(cola_vacia):
+        while not esVacia(cola_vacia):
+            desencolar(cola_vacia)
     
     while not esVacia(cola_llena):
         elemento = desencolar(cola_llena)
