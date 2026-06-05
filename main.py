@@ -168,7 +168,7 @@ def reajusteMasivoPorFechas(cola_impresion):
     
     if not esVacia(cola_impresion):
         try:
-            mes = int(input("-> Ingrese el número de mes (1-12): "))
+            mes = int(input("-> Ingrese el número de mes (1-12), los correspondientes trabajos cambiarán su prioridad a 'baja': "))
             print("")
         except ValueError:
             print("\n[ERROR] Por favor, ingrese un número válido.")
